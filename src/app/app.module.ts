@@ -10,7 +10,14 @@ import { SigninPageComponent } from './components/signin-page/signin-page.compon
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './sec/comp/login/login.component';
+import { RegisterComponent } from './sec/comp/register/register.component';
+import { HomeComponent } from './sec/comp/home/home.component';
+import { ProfileComponent } from './sec/comp/profile/profile.component';
+import { BoardAdminComponent } from './sec/comp/board-admin/board-admin.component';
+import { BoardModComponent } from './sec/comp/board-mod/board-mod.component';
+import { BoardUserComponent } from './sec/comp/board-user/board-user.component';
 
 const routes: Routes = [
   {path: 'cattle-list', component: CattleDealsComponent},
@@ -24,13 +31,21 @@ const routes: Routes = [
     EmployeeComponent,
     TasksComponent,
     CattleDealsComponent,
-    SigninPageComponent
+    SigninPageComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     //NgbModule,
     AppRoutingModule
   ],

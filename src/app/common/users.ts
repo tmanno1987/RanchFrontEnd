@@ -11,7 +11,6 @@ export class Users {
     salary: number;
     email: string;
     phone: string;
-    socialSecurityNumber: string;
     addr: string;
     city: string;
     state: string;
