@@ -1,0 +1,31 @@
+<div *ngFor="let pi of progressInfo" class="mb-2">
+    <span>{{ pi.fileName }}</span>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+            role="progressbar"
+            attr.aria-valuenow="{{ pi.percentage }}"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [ngStyle]="{ width: pi.percentage + '%' }">
+            {{ pi.percentage }}%
+        </div>
+    </div>
+</div>
+<label class="btn btn-default">
+    <input type="file" accept="image/*" multiple (change)="selectFiles($event)">
+</label>
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadFiles()">
+    Upload Images
+</button>
+<div class="alert alert-light" role="alert">{{ message }}</div>
+<div class="card">
+    <div class="card-header">
+        <strong><em>List of Images</em></strong>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let file of fileInfo">
+        <li class="list-group-item">
+        <p><a href="{{ file.url }}">{{ file.name }}</a></p>
+        <img src="{{ file.url }}" alt="{{ file.name }}" height="80px">
+        </li>
+    </ul>
+</div>

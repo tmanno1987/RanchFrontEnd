@@ -1,6 +1,9 @@
 <div class="col-md-12">
     <div class="card card-container">
-        <!-- <img> -->
+        <!-- <img> upload image if wish -->
+        <a routerLink="image-upload", routerLinkActive="true">
+            Add Profile Picture?
+        </a>
         <form *ngIf="!isSeccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <!-- username -->
             <div class="form-group">

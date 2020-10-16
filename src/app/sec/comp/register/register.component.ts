@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from 'src/app/services/upload.service';
 import { AuthService } from '../../serv/auth.service';
+
+const fileBlob: Blob[] = [];
 
 @Component({
   selector: 'app-register',
@@ -12,10 +15,16 @@ export class RegisterComponent implements OnInit {
   isSeccessful: boolean = false;
   isFailed: boolean = false;
   errorMsg = '';
-
-  constructor(private as: AuthService) { }
+  isImg: boolean;
+  
+  constructor(private as: AuthService, private upserv: UploadService) { }
 
   ngOnInit(): void {
+    if (this.isImg) {
+      // ...
+    } else {
+      this.upserv.upload(new File(fileBlob, 'assets/images/person-placeholder.jpg'));
+    }
   }
 
   onSubmit(): void {
