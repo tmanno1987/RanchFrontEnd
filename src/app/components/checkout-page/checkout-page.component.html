@@ -1,0 +1,57 @@
+<form [formGroup]="checkoutFG" (ngSubmit)="onSubmit()">
+    <!-- Customer Form Group -->
+    <div formGroupName="customer" class="form-area">
+        <h3>Customer</h3>
+        <!-- Name Details Section -->
+        <div class="row">
+            <div class="col-md-2">
+                <label>First Name: </label>
+            </div>
+            <input formControlName="firstName" type="text">
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Last Name: </label>
+            </div>
+            <input formControlName="lastName" type="text">
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Email: </label>
+            </div>
+            <input formControlName="email" type="email">
+        </div>
+        <!-- Address Section -->
+        <div class="row">
+            <div class="col-md-2">
+                <label>Address: </label>
+            </div>
+            <input formControlName="addr" type="text">
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>City: </label>
+            </div>
+            <input formControlName="city" type="text">
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>State: </label>
+            </div>
+            <input formControlName="state" type="text">
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Zip Code: </label>
+            </div>
+            <input formControlName="zip" type="text">
+        </div>
+        <!-- Phone Number Section -->
+        <div class="row">
+            <div class="col-md-2">
+                <label>Phone Number: </label>
+            </div>
+            <input formControlName="phone" type="text">
+        </div>
+    </div>
+</form>

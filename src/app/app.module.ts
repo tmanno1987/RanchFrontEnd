@@ -19,6 +19,10 @@ import { BoardAdminComponent } from './sec/comp/board-admin/board-admin.componen
 import { BoardModComponent } from './sec/comp/board-mod/board-mod.component';
 import { BoardUserComponent } from './sec/comp/board-user/board-user.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: 'cattle-list', component: CattleDealsComponent},
@@ -40,7 +44,11 @@ const routes: Routes = [
     BoardAdminComponent,
     BoardModComponent,
     BoardUserComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    CartDetailsComponent,
+    CartStatusComponent,
+    CheckoutPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

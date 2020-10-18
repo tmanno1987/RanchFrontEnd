@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SigninPageComponent } from './signin-page.component';
+import { CartStatusComponent } from './cart-status.component';
 
-describe('SigninPageComponent', () => {
-  let component: SigninPageComponent;
-  let fixture: ComponentFixture<SigninPageComponent>;
+describe('CartStatusComponent', () => {
+  let component: CartStatusComponent;
+  let fixture: ComponentFixture<CartStatusComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SigninPageComponent ]
+      declarations: [ CartStatusComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SigninPageComponent);
+    fixture = TestBed.createComponent(CartStatusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

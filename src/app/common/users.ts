@@ -15,6 +15,8 @@ export class Users {
     city: string;
     state: string;
     zip: string;
+    picData: Blob;
     taskSet: Set<Tasks>;
     roles: Set<Roles>;
+    orders: any;
 }
