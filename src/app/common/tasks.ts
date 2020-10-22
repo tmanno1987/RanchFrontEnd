@@ -1,5 +1,3 @@
-import { Users } from './users';
-
 export class Tasks {
     tid: bigint;
     name: string;
@@ -7,5 +5,6 @@ export class Tasks {
     avgTime: number;
     lastUpdate: Date;
     taskType: string;
-    compTask: Set<Users>;
+    desc: string;
+    photoUrl: string;
 }

@@ -7,7 +7,7 @@ import { CartItem } from '../common/cart-item';
 })
 export class CartService {
 
-  items: CartItem[];
+  items: CartItem[] = [];
   total: Subject<number> = new Subject<number>();
   quantity: Subject<number> = new Subject<number>();
 
@@ -61,5 +61,5 @@ export class CartService {
       this.items.splice(index, 1);
       this.computeTotals();
     }
-  }
+  }  
 }

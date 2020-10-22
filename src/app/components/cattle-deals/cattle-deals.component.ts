@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/common/cart-item';
 import { Cattle } from 'src/app/common/cattle';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,18 +12,23 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class CattleDealsComponent implements OnInit {
 
-  cattle: Cattle[];
+  cattle: Cattle[] = [];
   pageNumber: number = 1;
   pageSize: number = 10;
   totalElements: number = 0;
 
   constructor(private ps: ProductService,
+              private cs: CartService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.listCattle();
     });
+  }
+
+  addToCart(item: Cattle) {
+    this.cs.addToCart(new CartItem(item));
   }
 
   listCattle() {

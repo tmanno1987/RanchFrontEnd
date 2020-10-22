@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { BoardAdminComponent } from './sec/comp/board-admin/board-admin.component';
 import { BoardModComponent } from './sec/comp/board-mod/board-mod.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'mod', component: BoardModComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'image-upload', component: ImageUploadComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

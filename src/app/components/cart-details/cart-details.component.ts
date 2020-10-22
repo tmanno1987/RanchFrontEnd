@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartDetailsComponent implements OnInit {
 
-  items: CartItem[];
+  items: CartItem[] = [];
   total: number = 0;
   quantity: number = 0;
 

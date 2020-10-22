@@ -13,7 +13,7 @@ const options = {
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/';
+  private baseUrl = 'http://localhost:8080/api/cattles';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -42,7 +42,7 @@ export class ProductService {
   }
 
   insertCattle(cattle: Cattle): void {
-    let url = `http://localhost:8080/api/cattle`;
+    let url = `http://localhost:8080/api/cattles`;
     this.httpClient.post(url, cattle, options).subscribe(
       (resp) => console.log(resp)
     );

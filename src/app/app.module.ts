@@ -23,6 +23,7 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: 'cattle-list', component: CattleDealsComponent},
@@ -57,7 +58,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     //NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
