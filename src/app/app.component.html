@@ -1,32 +1,15 @@
 <div class="page-wrapper">
     <!-- Menu Side Bar Start -->
-    <aside class="menu-sidebar d-none d-lg-block">
-        <div class="logo">
-            <a href="#">
-                <img src="asstes/images/ranchlyfe.png" alt="Ranch Lyfe" class="img-responsive">
-            </a>
-        </div>
-        <div class="menu-sidebar-content js-scrollbar1">
-            <nav class="navbar-sidebar">
-                <ul class="list-unstyled navbar-list">
-                    <li>
-                        <a href="#">Temp 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Temp 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Temp 3</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <!-- Menu Side Bar End -->
+    <router-outlet></router-outlet>
 
     <!-- Page Container -->
     <div class="page-container">
         <header class="header-desktop">
+            <div class="logo">
+                <a routerLink="/home/" routerLinkActive="active-link">
+                    <img src="assets/images/ranchlyfe.png" alt="Ranch Lyfe" class="img-responsive">
+                </a>
+            </div>
             <div class="section-content section-content-p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
@@ -50,9 +33,10 @@
         <!-- Header End -->
 
         <!-- Main Start -->
-        <div class="main-content">
-             
-        </div>
+        <router-outlet></router-outlet>
+        <!-- <div class="main-content">
+             <router-outlet></router-outlet>
+        </div> -->
         <!-- Main End -->
 
     </div>

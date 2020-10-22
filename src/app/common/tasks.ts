@@ -4,7 +4,6 @@ export class Tasks {
     active: boolean;
     avgTime: number;
     lastUpdate: Date;
-    taskType: string;
     desc: string;
     photoUrl: string;
 }

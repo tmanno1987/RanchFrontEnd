@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { CattleDealsComponent } from './components/cattle-deals/cattle-deals.component';
-import { SigninPageComponent } from './components/signin-page/signin-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,12 +23,9 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-const routes: Routes = [
-  {path: 'cattle-list', component: CattleDealsComponent},
-  {path: '', redirectTo: '/cattle-list', pathMatch: 'full'},
-  {path: '**', redirectTo: '/cattle-list', pathMatch: 'full'}
-];
+import { CattleViewComponent } from './components/sidebar/cattle-view/cattle-view.component';
+import { TaskViewComponent } from './components/sidebar/task-view/task-view.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +33,6 @@ const routes: Routes = [
     EmployeeComponent,
     TasksComponent,
     CattleDealsComponent,
-    SigninPageComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -49,15 +44,16 @@ const routes: Routes = [
     CartDetailsComponent,
     CartStatusComponent,
     CheckoutPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CattleViewComponent,
+    TaskViewComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    //NgbModule,
     AppRoutingModule,
     NgbModule
   ],

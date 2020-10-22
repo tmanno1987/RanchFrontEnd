@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Cattle } from '../common/cattle';
+import { CattleCategory } from '../common/cattle-category';
 
 const options = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,6 +15,7 @@ const options = {
 export class ProductService {
 
   private baseUrl = 'http://localhost:8080/api/cattles';
+  private catsUrl = 'http://localhost:8080/api/categories';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,6 +31,12 @@ export class ProductService {
 
   getCattle(cid: bigint): Observable<Cattle> {
     return this.httpClient.get<Cattle>(`${this.baseUrl}/${cid}`);
+  }
+
+  getCategories(): Observable<CattleCategory[]> {
+    return this.httpClient.get<GetRespCats>(this.catsUrl).pipe(
+      map(resp => resp._embedded.categories)
+    );
   }
 
   searchProductsPaginate(page: number, size: number, keys: string): Observable<any> {
@@ -52,6 +60,18 @@ export class ProductService {
 interface GetRespCattle {
   _embedded: {
     cattle: Cattle[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
+  }
+}
+
+interface GetRespCats {
+  _embedded: {
+    categories: CattleCategory[];
   },
   page: {
     size: number,

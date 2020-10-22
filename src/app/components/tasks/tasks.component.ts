@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { Observable } from 'rxjs';
+import { TaskCategory } from 'src/app/common/task-category';
 import { Tasks } from 'src/app/common/tasks';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -12,6 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class TasksComponent implements OnInit {
 
   taskList: Tasks[];
+  category: TaskCategory[];
   currTaskId: number;
   page: number = 1;
   size: number = 10;
@@ -19,6 +20,7 @@ export class TasksComponent implements OnInit {
 
   constructor(private ts: TaskService,
               private task: Tasks,
+              private taskCategory: TaskCategory,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -46,8 +48,6 @@ export class TasksComponent implements OnInit {
   listTasks() {
     const keyword = this.route.snapshot.paramMap.get('keyword');
 
-    if ()
-
     if (this.route.snapshot.paramMap.has('keyword')) {
       this.ts.getTaskList().subscribe(
         data => {
@@ -55,12 +55,29 @@ export class TasksComponent implements OnInit {
         }
       );
     } else {
-
+      if(this.route.snapshot.paramMap.has('id')) {
+        // has category id already
+        this.currTaskId = +this.route.snapshot.paramMap.get('id');
+      } else {
+        // add base id
+        this.currTaskId = 1;
+      }
+      // process accordingly
+      this.ts.getTaskList().subscribe(data => {
+        this.taskList = data;
+      });
     }
   }
 
-  getCategories(): Observable<Tasks> {
+  addToInprogress(task: Tasks) {
+    task.active = false;
+    this.listTasks();
+  }
 
+  getCategories() {
+    this.ts.getTaskCategories().subscribe(
+      data => this.category = data
+    );
   }
 
   private processResults() {

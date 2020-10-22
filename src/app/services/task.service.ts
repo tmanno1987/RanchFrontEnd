@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TaskCategory } from '../common/task-category';
 import { Tasks } from '../common/tasks';
 
 const options = {
@@ -26,9 +27,9 @@ export class TaskService {
     return this.http.get<Tasks>(`${this.baseUrl}/${catid}`);
   }
 
-  getTaskCategories(): Observable<String[]> {
+  getTaskCategories(): Observable<TaskCategory[]> {
     return this.http.get<GetRespCats>(this.baseUrl).pipe(
-      map(resp => resp._embedded.taskses.taskType)
+      map(resp => resp._embedded.categories)
     );
   }
 
@@ -72,9 +73,7 @@ interface GetRespTasks {
 
 interface GetRespCats {
   _embedded: {
-    taskses: {
-      taskType: string[];
-    }
+    categories: TaskCategory[];
   },
   page: {
     size: number,
