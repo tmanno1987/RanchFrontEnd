@@ -23,7 +23,7 @@ export class TaskService {
     );
   }
 
-  getTask(catid: bigint): Observable<Tasks> {
+  getTask(catid: number): Observable<Tasks> {
     return this.http.get<Tasks>(`${this.baseUrl}/${catid}`);
   }
 

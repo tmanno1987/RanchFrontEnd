@@ -29,7 +29,7 @@ export class ProductService {
     return this.httpClient.get<GetRespCattle>(this.baseUrl);
   }
 
-  getCattle(cid: bigint): Observable<Cattle> {
+  getCattle(cid: number): Observable<Cattle> {
     return this.httpClient.get<Cattle>(`${this.baseUrl}/${cid}`);
   }
 
@@ -41,19 +41,26 @@ export class ProductService {
 
   searchProductsPaginate(page: number, size: number, keys: string): Observable<any> {
     const search = `${this.baseUrl}/search/findByNameContaining?name=${keys}&page=${page}&size=${size}`;
-
     return this.httpClient.get<GetRespCattle>(search);
   }
 
-  searchProducts() {
-
+  searchProducts(word: string): Observable<Cattle[]> {
+    const searchUrl: string = `${this.baseUrl}/search/findByNameContaining?name=${word}`;
+    return this.httpClient.get<GetRespCattle>(searchUrl).pipe(
+      map(resp => resp._embedded.cattle)
+    );
   }
 
-  insertCattle(cattle: Cattle): void {
+  insertCattle(cat: Cattle): void {
     let url = `http://localhost:8080/api/cattles`;
-    this.httpClient.post(url, cattle, options).subscribe(
+    this.httpClient.post(url, cat, options).subscribe(
       (resp) => console.log(resp)
     );
+  }
+
+  deleteCattle(cat: Cattle) {
+    const delUrl: string = `${this.baseUrl}/${cat.id}`;
+    this.httpClient.delete(delUrl);
   }
 }
 

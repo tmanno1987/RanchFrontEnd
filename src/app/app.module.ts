@@ -26,6 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CattleViewComponent } from './components/sidebar/cattle-view/cattle-view.component';
 import { TaskViewComponent } from './components/sidebar/task-view/task-view.component';
 import { SearchComponent } from './components/search/search.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { SearchComponent } from './components/search/search.component';
     PageNotFoundComponent,
     CattleViewComponent,
     TaskViewComponent,
-    SearchComponent
+    SearchComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

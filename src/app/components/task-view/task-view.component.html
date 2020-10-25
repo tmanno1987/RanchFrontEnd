@@ -1,0 +1,42 @@
+<!-------------- Left Side Section ------------------->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="menu-sidebar-content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar-list">
+                <li *ngFor="let cats of category">
+                    <a routerLink="/task-category/{{ cats.id }}" routerLinkActive="active-link">
+                        {{ cats.categoryName }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!--------------- Main Section ---------------------->
+<div class="main-content">
+    <div class="detail-section">
+        <div class="container-fluid">
+            <img src={{ task.imageUrl }} class="detail-img">
+
+            <h3>{{ task.name }}</h3>
+            <hr>
+            <h4>Description</h4>
+            <p>
+                {{ task.desc }}
+            </p>
+            <p>
+                <strong>Birthday:</strong> {{ task.bday }} <br>
+                <strong>Age:</strong> {{ task.age }}
+            </p>
+            <p>
+                <strong>Last Update:</strong> {{ task.lastUpdate | date }}
+            </p>
+            <button (click)="addToInProgress(task)" class="btn btn-primary btn-sa">
+                Select
+            </button>
+            <a routerLink="tasks" class="mt-5">
+                Back to Tasks Page..
+            </a>
+        </div>
+    </div>
+</div>

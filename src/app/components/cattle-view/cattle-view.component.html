@@ -1,0 +1,28 @@
+<div class="main-content">
+    <div class="detail-section">
+        <div class="container-fluid">
+            <img src="{{ cattle.imageUrl }}" class="detail-img">
+            <h3>{{ cattle.category.breed }}</h3>
+            <div class="price">
+                {{ cattle.price | currency:'USD' }}
+            </div>
+            <button (click)="addToCart()" class="btn btn-primary btn-sa">
+                Add to Cart
+            </button>
+            <hr>
+            <h4>Birthday/Age/Sex of Animal</h4>
+            <div *ngIf="cattle.sex === 'M'; else elseBlk">
+                Sex of animal is Male.
+            </div>
+            <ng-template #elseBlk>
+                Sex of animal is Female.
+            </ng-template>
+            <p>
+                Current Birthday: {{ cattle.bday }}<br>
+                Age of this animal is {{ cattle.age }}<br>
+                years old.
+            </p>
+            <a routerLink="cattle" class="mt-5">Back to Cattle List</a>
+        </div>
+    </div>
+</div>

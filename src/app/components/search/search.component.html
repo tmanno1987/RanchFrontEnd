@@ -1,1 +1,11 @@
-<p>search works!</p>
+<div>
+    <input #searchValue
+           type="text"
+           (keyup.enter)="onSearch(searchValue.value)"
+           placeholder="Search for animals ..."
+           class="au-input au-input-xl">
+
+    <button (click)="onSearch(searchValue.value)" class="au-btn-submit">
+        Search
+    </button>
+</div>

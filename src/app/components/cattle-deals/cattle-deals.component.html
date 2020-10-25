@@ -3,9 +3,9 @@
     <div class="menu-sidebar-content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar-list">
-                <li *ngFor="let cats of category">
+                <li *ngFor="let cats of cattleCats">
                     <a routerLink="/task-category/{{ cats.id }}" routerLinkActive="active-link">
-                        {{ cats.categoryName }}
+                        {{ cats.breed }}
                     </a>
                 </li>
             </ul>
@@ -23,7 +23,7 @@
                             <img src={{ anml.imageUrl }} class="img-responsive">
                         </a>
                         <a routerLink="cattles/{{ anml.id }}">
-                            <h1>{{ anml.breed }}</h1>
+                            <h1>Type</h1>
                         </a>
                         <div class="price">{{ anml.price | currency:'USD' }}</div>
                         <button (click)="addToCart(anml)" class="btn btn-primary btn-sa">Add to Cart</button>

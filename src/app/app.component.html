@@ -1,6 +1,5 @@
 <div class="page-wrapper">
     <!-- Menu Side Bar Start -->
-    <router-outlet></router-outlet>
 
     <!-- Page Container -->
     <div class="page-container">
@@ -13,18 +12,8 @@
             <div class="section-content section-content-p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" onsubmit="return false" method="GET">
-                            <input class="au-input au-input-xl" type="text" name="search" placeholder="Search for data ...">
-                            <button class="au-btn-submit" type="submit">
-                                SEARCH
-                            </button>
-                        </form>
-                        <div class="cart-area d-n">
-                            <a href="#">
-                                <div class="total">20.00 <span> 2</span> </div>
-                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        <app-search></app-search>
+                        <app-cart-status></app-cart-status>
                     </div>
                     <div class="account-wrap"></div>
                 </div>
@@ -34,9 +23,6 @@
 
         <!-- Main Start -->
         <router-outlet></router-outlet>
-        <!-- <div class="main-content">
-             <router-outlet></router-outlet>
-        </div> -->
         <!-- Main End -->
 
     </div>
@@ -45,8 +31,8 @@
 
 <footer>
     <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a routerLink="about" routerLinkActive="active-link">About Us</a></li>
+        <li><a routerLink="contact" routerLinkActive="active-link">Contact Us</a></li>
+        <li><a routerLink="help" routerLinkActive="active-link">Help</a></li>
     </ul>
 </footer>
