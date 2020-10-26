@@ -1,17 +1,35 @@
 <div class="container" *ngIf="currUser; else loggedOut">
     <header class="jumbotron">
+        <div *ngIf="isImg; else notImg">
+            <img src={{ currUser.picData }} alt="profile picture" class="img-responsive">
+        </div>
+        <ng-template #notImg>
+            <img src="assets/images/person-placeholder.jpg" alt="place holder image" class="img-responsive">
+        </ng-template>
         <h3>
-            <strong>{{ currUser.username }}</strong> Profile
+            <u><strong>{{ user.user }}</strong>'s Profile</u>
         </h3>
     </header>
     <p>
-        <strong>Token:</strong>
-        {{ currUser.accessToken.substring(0, 20) }} ... 
-        {{ currUser.accessToken.substr(currUser.accessToken.length-20) }}
+        <strong>Name:</strong> <em>{{ user.lastName }}, {{ user.firstName }}</em><br>
+        <strong>Phone:</strong> {{ user.phone | phoneNumber:'US' }}
+        <strong>Email:</strong> 
+        <a routerLink="mail" routerLinkActive="active-link">
+            {{ user.email }}
+        </a>
     </p>
+    <div *ngIf="notEmp; else eblk">
+        <strong>Position:</strong> {{ user.category.name }}
+        <strong>Salary:</strong> {{ user.salary | currency:'USD' }}
+    </div>
+    <ng-template #eblk>
+        <strong>Position:</strong> {{ user.category.name }}
+    </ng-template>
     <p>
-        <strong>Email:</strong>
-        {{ currUser.email }}
+        <strong>Address:</strong> {{ user.addr }}
+        <strong>City:</strong> {{ user.city }}
+        <strong>State:</strong> {{ user.state }}
+        <strong>Zip Code:</strong> {{ user.zip }}
     </p>
     <strong>Roles:</strong>
     <ul>
@@ -19,8 +37,17 @@
             {{ role }}
         </li>
     </ul>
+    <button class="btn btn-primary btn-sa" (click)="moveToInsertForm()">
+        Update
+    </button>
+    <button class="btn btn-primary btn-sa" (click)="removeBtn(user.id)">
+        Delete
+    </button>
+    <button class="btn btn-primary btn-sa" (click)="signout()">
+        Sign-out
+    </button>
 </div>
-
+ 
 <ng-template #loggedOut>
     Please Login
 </ng-template>

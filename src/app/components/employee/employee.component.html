@@ -1,1 +1,63 @@
-<p>employee works!</p>
+<!-------------------------------------- Left Side Section --------------------------------------->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="menu-sidebar-content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar-list">
+                <li *ngFor="let cats of category">
+                    <a routerLink="/user-category/{{ cats.id }}" routerLinkActive="active-link">
+                        {{ cats.name }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!----------------------------------------- Main Content ----------------------------------------->
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let emp of emplist">
+                    <div class="product-box">
+                        <a routerLink="userses/{{ emp.id }}" routerLinkActive="active-link">
+                            <div *ngIf="emp.picData == null; else elseBlk">
+                                <img src={{emp.picData}} class="img-responsive" alt="profile picture">
+                            </div>
+                            <ng-template #elseBlk>
+                                <img src="assets/images/person-placeholder.jpg" class="img-responsive" alt="profile picture">
+                            </ng-template>
+                        </a>
+                        <a routerLink="userses/{{ emp.id }}" routerLinkActive="active-link">
+                            <h1><strong><em>{{ emp.lastName }}, {{ emp.firstName }}</em></strong></h1>
+                        </a>
+                        <a routerLink="user-category/{{ emp.category.id }}" routerLinkActive="active-link">
+                            <h2>Position: {{ emp.category.name }}</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+<!------------------------------ Footer Pagination Section ------------------------------------------->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3">
+                        <div class="items">
+                            <label>Users per page</label>
+                            <select>
+                                <option selected="true">5</option>
+                                <option>10</option>
+                                <option>20</option>
+                            </select>
+                        </div>
+                    </div>
+                    <ngb-pagination
+                        [(page)]="page"
+                        [(pageSize)]="size"
+                        [collectionSize]="elems"
+                        (pageChange)="listEmployees()">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

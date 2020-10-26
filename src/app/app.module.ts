@@ -29,6 +29,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HelpComponent } from './components/help/help.component';
+import { StripePaymentComponent } from './stripe/comp/stripe-payment/stripe-payment.component';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { HelpComponent } from './components/help/help.component';
     SearchComponent,
     AboutUsComponent,
     ContactUsComponent,
-    HelpComponent
+    HelpComponent,
+    StripePaymentComponent,
+    PhoneNumberPipe
   ],
   imports: [
     BrowserModule,

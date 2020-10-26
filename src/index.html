@@ -9,5 +9,10 @@
 </head>
 <body>
   <app-root></app-root>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="text/javascript">
+    const stripe = Stripe(pk_test_51Hd0tMDmbLt2QRMlOM5iTDvb0MxOPvKFpxP6Q1NNIAX42ZRS7Tit0ewK7sBct2jieN6js3XTqzIfk7pimRKO7IN600soo2zIDa);
+    const elements = stripe.elements();
+  </script>
 </body>
 </html>

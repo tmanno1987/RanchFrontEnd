@@ -1,5 +1,6 @@
 import { Roles } from './roles';
 import { Tasks } from './tasks';
+import { UserCategory } from './user-category';
 
 export class Users {
     id: bigint;
@@ -7,7 +8,7 @@ export class Users {
     pass: string;
     firstName: string;
     lastName: string;
-    pos: string;
+    category: UserCategory;
     salary: number;
     email: string;
     phone: string;

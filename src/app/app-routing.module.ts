@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { CattleDealsComponent } from './components/cattle-deals/cattle-deals.component';
+import { CattleViewComponent } from './components/cattle-view/cattle-view.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HelpComponent } from './components/help/help.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
@@ -24,9 +26,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'cattles', component: CattleDealsComponent },
+  { path: 'cattles/:id', component: CattleViewComponent },
   { path: 'taskses', component: TasksComponent },
   { path: 'taskses/:tid', component: TaskViewComponent },
   { path: 'user', component: BoardUserComponent },
+  { path: 'userses/:id', component: ProfileComponent },
   { path: 'mod', component: BoardModComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'image-upload', component: ImageUploadComponent },
